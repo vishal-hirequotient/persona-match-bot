@@ -67,7 +67,7 @@ const ChatPanel: React.FC = () => {
             break;
             
           case 'asking-skills':
-            responseText = `Great! I've found some potential candidates based on your requirements. Please review them on the right and approve at least 3 candidates that match your criteria well.`;
+            responseText = `Great! I've found some potential candidates based on your requirements. Please review them and approve at least 3 candidates that match your criteria well.`;
             finishTypingMessage(typingId, responseText);
             setStatus('candidate-review');
             break;
@@ -82,20 +82,19 @@ const ChatPanel: React.FC = () => {
   }, [messages, status, startTypingMessage, finishTypingMessage, setStatus]);
 
   return (
-    <div className="flex flex-col h-full border-r">
-      {/* Header */}
-      <div className="flex items-center p-4 border-b bg-white">
-        <div className="flex items-center justify-center w-10 h-10 rounded-full bg-bot-light">
-          <BotIcon className="text-bot" size={20} />
-        </div>
-        <div className="ml-3">
-          <h2 className="font-semibold text-gray-800">Orion, your AI Sourcing Assistant.</h2>
-          <p className="text-sm text-gray-500">Let's find the best candidates for your role.</p>
-        </div>
-      </div>
-      
+    <div className="flex flex-col h-full">
       {/* Messages */}
       <div className="flex-1 overflow-y-auto p-4 bg-gray-50">
+        {status === 'initial' && (
+          <div className="h-full flex items-center justify-center text-gray-500">
+            <div className="text-center">
+              <BotIcon className="mx-auto h-12 w-12 mb-4 text-bot" />
+              <h3 className="text-xl font-semibold">Start the conversation</h3>
+              <p>Tell Orion about your hiring needs</p>
+            </div>
+          </div>
+        )}
+        
         {messages.map((message) => (
           <ChatMessage key={message.id} message={message} />
         ))}
