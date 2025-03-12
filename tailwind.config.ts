@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,23 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				bot: {
+					DEFAULT: '#FF6B35', // Orange for bot messages
+					light: '#FFE0D1',   // Light orange for bot message background
+					gradient: 'linear-gradient(90deg, #FF6B35 0%, #FF8C61 100%)'
+				},
+				user: {
+					DEFAULT: '#F5F6FA', // Light grey for user messages
+					dark: '#E4E6F0'     // Darker grey for user message border
+				},
+				approve: {
+					DEFAULT: '#31B057',  // Green for approval
+					light: '#E8F7ED'    // Light green background
+				},
+				reject: {
+					DEFAULT: '#E34646',  // Red for rejection
+					light: '#FAEBEB'    // Light red background
 				}
 			},
 			borderRadius: {
@@ -84,11 +102,36 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-in': {
+					from: {
+						opacity: '0'
+					},
+					to: {
+						opacity: '1'
+					}
+				},
+				'slide-up': {
+					from: {
+						transform: 'translateY(10px)',
+						opacity: '0'
+					},
+					to: {
+						transform: 'translateY(0)',
+						opacity: '1'
+					}
+				},
+				'typing': {
+					from: { width: '0' },
+					to: { width: '100%' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.3s ease-out',
+				'slide-up': 'slide-up 0.3s ease-out',
+				'typing': 'typing 1.5s steps(40, end)'
 			}
 		}
 	},
