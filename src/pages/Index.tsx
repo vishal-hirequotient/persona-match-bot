@@ -2,18 +2,16 @@
 import React from 'react';
 import { ProjectProvider } from '@/contexts/ProjectContext';
 import ChatPanel from '@/components/ChatPanel';
-import CandidatePanel from '@/components/CandidatePanel';
+import CandidateDrawer from '@/components/CandidateDrawer';
 
 const Index = () => {
   return (
     <ProjectProvider>
-      <div className="flex h-screen bg-gray-100">
-        <div className="flex-1 max-w-[500px] bg-white shadow-md">
+      <div className="h-screen bg-gray-100">
+        <div className="w-full max-w-3xl mx-auto bg-white shadow-md h-full">
           <ChatPanel />
         </div>
-        <div className="flex-1 bg-white shadow-md">
-          <CandidatePanel />
-        </div>
+        <CandidateDrawer />
       </div>
     </ProjectProvider>
   );
