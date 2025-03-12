@@ -11,20 +11,17 @@ import { useProject } from '@/contexts/ProjectContext';
 
 interface CandidateCardProps {
   candidate: Candidate;
-  onAction?: () => void;
 }
 
-const CandidateCard: React.FC<CandidateCardProps> = ({ candidate, onAction }) => {
+const CandidateCard: React.FC<CandidateCardProps> = ({ candidate }) => {
   const { approveCandidate, rejectCandidate } = useProject();
 
   const handleApprove = () => {
     approveCandidate(candidate.id);
-    if (onAction) onAction();
   };
 
   const handleReject = () => {
     rejectCandidate(candidate.id);
-    if (onAction) onAction();
   };
 
   return (
